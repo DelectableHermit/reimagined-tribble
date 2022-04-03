@@ -7,7 +7,6 @@ rList = []
 output = []
 #variable used to convert list to str
 rollStr = ""
-genStr = ""
 
 #Open json, creates var data with loaded json.
 with open("wordlist.json","r") as wl:
@@ -25,6 +24,7 @@ while True:
     except ValueError:
         print("Enter a number.")
         continue
+
 #function for times, and to clear rollerList
 def times_to_run(times, f):
     for i in range(times): f()
@@ -35,9 +35,7 @@ def roller():
     for i in range(5):
         rollerList.append(str(random.randint(1,6)))
         roll = rollStr.join(rollerList)
-        #print(roll)
-        #print(rollerList)
-        #Checks length, if 5, append to rlist and clear rollerList.
+        #Checks length, if 5, append to rlist and clears rollerList.
         if len(rollerList) == 5:
             rList.append(roll)
             rollerList.clear()
